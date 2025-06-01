@@ -1,5 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { FaCube } from "react-icons/fa6";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { LuCircleUserRound } from "react-icons/lu";
 
 const Navbar = () => {
   return (
@@ -9,13 +12,16 @@ const Navbar = () => {
                 <FaCube className='text-2xl'/>
                 <span className='font-bold text-2xl'>Whispers</span>
             </div>
+            <div className='flex items-end gap-2 justify-center'>
             <ul className='flex gap-4'>
-                <li>Home</li>
-                <li>Confessions</li>
-                <li>Add Confession</li>
+                <Link to = '/' className='max-sm:hidden'>Home</Link>
+                <Link to = '/confessions' className='max-sm:hidden'>Confessions</Link>
+                <Link to = '/add-confession' className='max-sm:hidden'>Add Confession</Link>
             </ul>
-            <div>
-                
+            <div className='flex items-center gap-4'>
+                <LuCircleUserRound className='max-sm:hidden text-2xl mx-5'/>
+                <GiHamburgerMenu className='sm:hidden text-2xl'/>
+            </div>
             </div>
         </nav>
     </div>
