@@ -1,15 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const SignIn = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-200">
-      <div className="bg-white shadow-lg rounded-xl flex flex-col items-center min-h-[70vh] w-[90%] max-w-md px-8 py-10 gap-6">
+      <div className="bg-white shadow-lg rounded-xl flex flex-col items-center min-h-[70vh] w-[90%] max-w-md px-8 py-10 gap-6 max-sm:h-[30vh]">
         
         <div className="text-center position-relative left-10">
           <span className="text-sm text-gray-500">Please enter your details</span>
           <h1 className="text-2xl font-bold text-gray-800">Welcome back</h1>
         </div>
-
         <div className="flex flex-col w-full gap-4 mt-6">
           <input
             className="bg-gray-100 p-2 rounded-xl caret-pink-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
@@ -28,9 +28,9 @@ const SignIn = () => {
 
         <div className="text-sm text-gray-600">
           Don't have an account?{' '}
-          <button className="text-pink-600 font-medium hover:underline">
+          <Link to = '/sign-up' className="text-pink-600 font-medium hover:underline">
             Sign Up
-          </button>
+          </Link>
         </div>
       </div>
     </div>
