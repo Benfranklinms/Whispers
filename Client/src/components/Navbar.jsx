@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { FaCube } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LuCircleUserRound } from "react-icons/lu";
+import { Cannabis } from 'lucide-react';
 
 const Navbar = () => {
   return (
     <div>
         <nav className='flex justify-between bg-pink-700 text-white p-6'>
             <div className='flex items-center gap-2'>
-                <FaCube className='text-2xl'/>
+              <Cannabis />
                 <span className='font-bold text-2xl'>Whispers</span>
             </div>
             <div className='flex items-end gap-2 justify-center'>
