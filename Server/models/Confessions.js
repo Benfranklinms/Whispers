@@ -13,7 +13,7 @@ const ConfessionSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     }
-});
+}, {timestamps: true});
 
 const Confession = mongoose.model('Confession', ConfessionSchema);
 export default Confession;
