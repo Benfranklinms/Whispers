@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectToDB from './Config/db.js';
+import authRoute from './routes/authRoute.js'
 
 
 const app = express();
@@ -12,9 +13,7 @@ connectToDB();
 
 
 
-app.get('/', (req, res) => {
-    res.send("Just testing");
-});
+app.use('/auth', authRoute)
 
 
 const PORT = process.env.PORT || 3000;
