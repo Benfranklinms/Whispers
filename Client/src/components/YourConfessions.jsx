@@ -3,7 +3,7 @@ import React from 'react'
 
 const YourConfessions = () => {
   return (
-    <section className='flex flex-col items-start bg-pink-200 p-10 sm:w-[70vw] max-sm:w-[95vw] mx-auto min-h-screen rounded-xl'>
+    <section className='flex flex-col items-start bg-pink-200 p-10 sm:w-[70vw] max-sm:w-[95vw] mx-auto min-h-screen rounded-xl mb-5'>
         <div className='flex sm:px-2 gap-1'>
             <span className='font-black text-2xl'>Your Confessions</span>
         </div>

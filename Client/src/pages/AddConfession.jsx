@@ -1,15 +1,47 @@
 import React from 'react'
 import ConfessionNavbar from '../components/ConfessionNavbar'
 
-
 const AddConfession = () => {
+  const maxChars = 500;
   return (
     <main>
-      <div>
-        
-      </div>
-    </main>
+      <ConfessionNavbar />
+     <div
+      className="relative flex min-h-screen flex-col bg-white overflow-x-hidden"
+    >
+      <div className="flex flex-1 flex-col px-10 py-5">
+        <div className="flex flex-wrap justify-between gap-3 p-4">
+          <p className="text-[#171212] tracking-light text-[32px] font-bold leading-tight min-w-72">
+            Share Your Story
+          </p>
+        </div>
 
+        <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+          <label className="flex flex-col min-w-40 flex-1">
+            <p className="text-[#171212] text-base font-medium leading-normal pb-2">
+              Confession
+            </p>
+            <textarea
+              placeholder="What's on your mind?"
+              className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#171212] focus:outline-0 focus:ring-0 border border-[#e4dddd] bg-white focus:border-[#e4dddd] min-h-36 placeholder:text-[#82686a] p-[15px] text-base font-normal leading-normal"
+            ></textarea>
+          </label>
+        </div>
+
+        <p className="text-[#82686a] text-sm font-normal leading-normal pb-3 pt-1 px-4">
+          Character limit: 500
+        </p>
+
+        <div className="flex px-4 py-3 justify-center">
+          <button
+            className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e8b4b7] text-[#171212] text-sm font-bold leading-normal tracking-[0.015em]"
+          >
+            <span className="truncate">Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    </main>
   )
 }
 
