@@ -4,9 +4,12 @@ import ConfessionNavbar from '../components/ConfessionNavbar'
 
 const AddConfession = () => {
   return (
-    <div>
-      <ConfessionNavbar/>
-    </div>
+    <main>
+      <div>
+        
+      </div>
+    </main>
+
   )
 }
 
