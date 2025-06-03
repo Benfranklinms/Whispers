@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-   <section className="w-full min-h-screen bg-white px-2 pt-10 md:pt-0 flex justify-center items-start md:items-center">
+   <section className="w-full min-h-[80vh] bg-white px-2 pt-10 md:pt-0 flex justify-center items-start md:items-center">
       <div className="flex justify-center items-center relative w-full max-w-4xl h-[70vh] rounded-xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-md shadow-lg">
         <img
           src="/HeroSection.jpg"
