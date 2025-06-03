@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -14,13 +15,13 @@ const Hero = () => {
           <h1 className="text-white text-3xl md:text-5xl font-extrabold">
             Share Your Secrets, <br /> Anonymously
           </h1>
-          <p className="text-gray-200 mt-4 text-base md:text-lg">
+          <p className="text-gray-200 mt-4 text-base md:text-lg mb-7">
             Unburden your heart and mind. Share your deepest secrets and
             confessions with the world, knowing your identity remains protected.
           </p>
-          <button className="mt-6 px-6 py-3 bg-pink-600 hover:bg-red-700 text-white font-semibold rounded-full transition">
+          <Link to = '/add-confession' className="mt-6 px-6 py-3 bg-pink-600 hover:bg-red-700 text-white font-semibold rounded-full transition">
             Confess Now
-          </button>
+          </Link>
         </div>
       </div>
     </section>

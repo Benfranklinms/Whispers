@@ -1,8 +1,12 @@
 import React from 'react'
+import ConfessionNavbar from '../components/ConfessionNavbar'
+
 
 const AddConfession = () => {
   return (
-    <div>AddConfession</div>
+    <div>
+      <ConfessionNavbar/>
+    </div>
   )
 }
 
