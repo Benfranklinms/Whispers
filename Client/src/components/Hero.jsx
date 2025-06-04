@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 const Hero = () => {
   return (
    <section className="w-full min-h-[80vh] bg-white px-2 pt-10 md:pt-0 flex justify-center items-start md:items-center">
@@ -19,7 +20,7 @@ const Hero = () => {
             Unburden your heart and mind. Share your deepest secrets and
             confessions with the world, knowing your identity remains protected.
           </p>
-          <Link to = '/add-confession' className="mt-6 px-6 py-3 bg-pink-600 hover:bg-red-700 text-white font-semibold rounded-full transition">
+          <Link to = '/add-confession' className="mt-6 px-6 py-3 bg-black hover:bg-red-700 text-white font-semibold rounded-full ring-1 ring-zinc-200 transition-all duration-300 ease-in-out hover:ring-red-500 shadow-md">
             Confess Now
           </Link>
         </div>
