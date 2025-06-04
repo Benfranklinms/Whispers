@@ -1,10 +1,10 @@
 import React from 'react'
-import CommunityNavbar from '../components/CommunityNavbar'
+import Navbar from '../components/Navbar'
 
 const Confessions = () => {
   return (
     <main>
-      <CommunityNavbar/>
+      <Navbar/>
       <div className="px-40 flex flex-1 justify-center py-5">
       <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
         <div className="flex flex-wrap justify-between gap-3 p-4">

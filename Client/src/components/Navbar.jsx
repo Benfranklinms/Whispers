@@ -1,10 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaCube } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LuCircleUserRound } from "react-icons/lu";
+import { IoMdClose } from "react-icons/io";
+import { Bell } from 'lucide-react';
 
 const Navbar = () => {
+
+    const [menuOpen, setmenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setmenuOpen(!menuOpen)
+    }
+
+    const location = useLocation();
+    const isHome = location.pathname === '/';
+    const isConfessions = location.pathname === '/confessions';
+    const isAddConfession = location.pathname === '/add-confession';
   return (
     <div>
         <nav className='flex justify-between bg-pink-700 text-white p-6'>
@@ -14,14 +27,37 @@ const Navbar = () => {
             </div>
             <div className='flex items-end gap-2 justify-center'>
             <ul className='flex gap-4'>
+                {(
+                    location.pathname === '/confessions'  
+                )}
                 <Link to = '/' className='max-sm:hidden'>Home</Link>
-                <Link to = '/confessions' className='max-sm:hidden'>Confessions</Link>
-                <Link to = '/add-confession' className='max-sm:hidden'>Add Confession</Link>
+                {(isHome || isConfessions) && (
+                    <Link to = '/add-confession' className='max-sm:hidden'>Add Confession</Link>
+                )}
+                {(isHome || isAddConfession) && (
+                    <Link to = '/confessions' className='max-sm:hidden'>Confessions</Link>
+                )}
+                {(isConfessions || isAddConfession) && (
+                    <Bell className='max-sm:hidden'/>
+                )}
             </ul>
             <div className='flex items-center gap-4'>
                 <LuCircleUserRound className='max-sm:hidden text-2xl mx-5'/>
-                <GiHamburgerMenu className='sm:hidden text-2xl'/>
+                {menuOpen?(
+                <IoMdClose className='sm:hidden text-2xl' onClick={toggleMenu}/>):
+                (<GiHamburgerMenu className='sm:hidden text-2xl' onClick={toggleMenu}/>
+                )}
             </div>
+            {
+                menuOpen && (
+                    <div className='bg-pink-400 absolute top-16 right-2 sm:hidden z-50 p-4 rounded flex flex-col gap-4'>
+                        <Link to = '/' className='hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Home</Link>
+                        <Link to = '/confessions' className='hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Confessions</Link>
+                        <Link to = '/add-confession' className='hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Add Confession</Link>
+                        <button className='text-left hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Logout</button>
+                    </div>
+                )
+            }
             </div>
         </nav>
     </div>

@@ -1,11 +1,11 @@
 import React from 'react'
-import ConfessionNavbar from '../components/ConfessionNavbar'
+import Navbar from '../components/Navbar'
 
 const AddConfession = () => {
   const maxChars = 500;
   return (
     <main>
-      <ConfessionNavbar />
+      <Navbar/>
      <div
       className="relative flex min-h-screen flex-col bg-white overflow-x-hidden"
     >
