@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.post('/add', auth, createConfession);
-router.get('all', getAllConfessions);
+router.get('/all', getAllConfessions);
 router.get('/my', auth, getMyConfessions);
 
 export default router;
