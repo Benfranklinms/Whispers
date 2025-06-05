@@ -76,7 +76,6 @@ const Navbar = () => {
                         <Link to = '/confessions' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Confessions</Link>
                         <Link to = '/add-confession' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Add Confession</Link>
                         <Link to = 'https://github.com/Benfranklinms/Whispers' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Source code</Link>
-                        <button className='text-left hover:bg-red-900 w-full hover:rounded px-2 py-1'>Logout</button>
                     </div>
                 )
             }
