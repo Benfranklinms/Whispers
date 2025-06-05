@@ -26,9 +26,10 @@ const AccountSection = React.forwardRef((props, ref) => {
         </div>
 
         <div className="flex flex-col gap-2 p-4">
-          <button className="w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition">
-            View Profile
-          </button>
+          <div className='flex gap-2'>
+            <button className='w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition'>Login</button>
+            <button className='w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition'>Sign Up</button>
+          </div>
           <button className="w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition">
             Logout
           </button>
