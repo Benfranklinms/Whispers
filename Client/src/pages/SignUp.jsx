@@ -11,7 +11,7 @@ const SignUp = () => {
           <h1 className="text-2xl font-bold text-gray-800">Sign Up</h1>
         </div>
 
-        <div className="flex flex-col w-full gap-4">
+        <form className="flex flex-col w-full gap-4">
           <input
             className="bg-gray-100 p-2 rounded-xl caret-pink-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
             type="text"
@@ -30,7 +30,7 @@ const SignUp = () => {
           <button className="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-xl font-medium transition">
             Create Account
           </button>
-        </div>
+        </form>
 
         <div className="text-sm text-gray-600">
           Already have an account?{' '}

@@ -10,7 +10,7 @@ const SignIn = () => {
           <span className="text-sm text-gray-500">Please enter your details</span>
           <h1 className="text-2xl font-bold text-gray-800">Welcome back</h1>
         </div>
-        <div className="flex flex-col w-full gap-4 mt-6">
+        <form className="flex flex-col w-full gap-4 mt-6">
           <input
             className="bg-gray-100 p-2 rounded-xl caret-pink-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
             type="email"
@@ -24,7 +24,7 @@ const SignIn = () => {
           <button className="bg-pink-600 hover:bg-pink-700 text-white p-2 rounded-xl font-medium transition duration-200 focus:outline-none focus:ring-2 focus:ring-pink-400">
             Login
           </button>
-        </div>
+        </form>
 
         <div className="text-sm text-gray-600">
           Don't have an account?{' '}

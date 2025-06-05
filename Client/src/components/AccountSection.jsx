@@ -1,9 +1,11 @@
 import React from 'react'
+import { useRef } from 'react'
 
-const AccountSection = () => {
+const AccountSection = React.forwardRef((props, ref) => {
   return (
     <div>
-       <div className="absolute right-8 top-16 z-50 w-[320px] rounded-xl shadow-xl bg-white ring-1 ring-slate-300 border border-slate-200">
+       <div ref={ref}
+       className="absolute right-8 top-16 z-50 w-[320px] rounded-xl shadow-xl bg-white ring-1 ring-slate-300 border border-slate-200">
       <div className="flex flex-col">
         <div className="p-4 border-b border-slate-200">
           <h2 className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
@@ -35,6 +37,6 @@ const AccountSection = () => {
     </div>
     </div>
   )
-}
+})
 
 export default AccountSection

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaCube } from "react-icons/fa6";
@@ -19,6 +20,25 @@ const Navbar = () => {
     const isHome = location.pathname === '/';
     const isConfessions = location.pathname === '/confessions';
     const isAddConfession = location.pathname === '/add-confession';
+
+
+     const [accountOpen, setaccountOpen] = useState(false);
+     const accountRef = useRef(null);
+
+     useEffect(() => {
+       const handleClickOutside = (event) => {
+            if(accountRef.current && !accountRef.current.contains(event.target)){
+                setaccountOpen(false);
+            }
+       }
+            document.addEventListener('mousedown', handleClickOutside);
+     
+       return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+       }
+     }, []);
+     
+
   return (
     <div>
         <nav className='flex justify-between bg-pink-700 text-white p-6'>
@@ -43,7 +63,7 @@ const Navbar = () => {
                 )}
             </ul>
             <div className='flex items-center gap-4'>
-                <LuCircleUserRound className='max-sm:hidden text-2xl mx-5'/>
+                <LuCircleUserRound className='max-sm:hidden text-2xl mx-5' onClick={() => setaccountOpen(!accountOpen)}/>
                 {menuOpen?(
                 <IoMdClose className='sm:hidden text-2xl' onClick={toggleMenu}/>):
                 (<GiHamburgerMenu className='sm:hidden text-2xl' onClick={toggleMenu}/>
@@ -62,7 +82,11 @@ const Navbar = () => {
             }
             </div>
         </nav>
-        <AccountSection className="sm:hidden" /> 
+        <div className='max-sm:hidden'>
+            {accountOpen && 
+                <AccountSection ref = {accountRef}/>
+            }
+        </div>
     </div>
   )
 }
