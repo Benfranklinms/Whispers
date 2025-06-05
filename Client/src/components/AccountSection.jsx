@@ -1,9 +1,12 @@
 import React from 'react'
 import { useRef } from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 const AccountSection = React.forwardRef((props, ref) => {
+
+  const navigate = useNavigate();
  
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -39,7 +42,7 @@ const AccountSection = React.forwardRef((props, ref) => {
   return (
     <div>
        <div ref={ref}
-       className="absolute right-8 top-16 z-50 w-[320px] rounded-xl shadow-xl bg-white ring-1 ring-slate-300 border border-slate-200">
+       className="absolute right-8 max-sm:right-3 top-16 z-50 w-[320px] rounded-xl shadow-xl bg-white ring-1 ring-slate-300 border border-slate-200">
       <div className="flex flex-col">
         <div className="p-4 border-b border-slate-200">
           <h2 className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
@@ -69,9 +72,13 @@ const AccountSection = React.forwardRef((props, ref) => {
             Logout
           </button>
           ) : (
-          <div className='flex gap-2'>
-            <button className='w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition'>Login</button>
-            <button className='w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition'>Sign Up</button>
+          <div className='flex gap-2 max-sm:flex-col'>
+            <button className='w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition'
+            onClick={() => navigate('/sign-in')}
+            >Login</button>
+            <button className='w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition'
+            onClick={() => navigate('/sign-up')}
+            >Sign Up</button>
           </div>
           )
           }

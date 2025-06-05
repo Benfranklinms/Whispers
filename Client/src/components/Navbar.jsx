@@ -63,7 +63,7 @@ const Navbar = () => {
                 )}
             </ul>
             <div className='flex items-center gap-4'>
-                <LuCircleUserRound className='max-sm:hidden text-2xl mx-5' onClick={() => setaccountOpen(!accountOpen)}/>
+                <LuCircleUserRound className='text-2xl mx-5' onClick={() => setaccountOpen(!accountOpen)}/>
                 {menuOpen?(
                 <IoMdClose className='sm:hidden text-2xl' onClick={toggleMenu}/>):
                 (<GiHamburgerMenu className='sm:hidden text-2xl' onClick={toggleMenu}/>
@@ -82,7 +82,7 @@ const Navbar = () => {
             }
             </div>
         </nav>
-        <div className='max-sm:hidden'>
+        <div>
             {accountOpen && 
                 <AccountSection ref = {accountRef}/>
             }
