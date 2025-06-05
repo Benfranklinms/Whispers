@@ -19,7 +19,7 @@ export const createConfession = async (req, res) => {
 
 export const getAllConfessions = async (req, res) => {
     try{
-        const Confessions = await Confession.find().sort({createdAt: -1})
+        const Confessions = await Confession.find().sort({createdAt: -1}).populate('user', 'name');
         res.status(200).json(Confessions);
     } catch (err) {
         res.status(500).json({error: err.message})

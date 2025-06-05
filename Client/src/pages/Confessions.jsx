@@ -85,7 +85,7 @@ const Confessions = () => {
                         {item.text}
                       </p>
                       <p className="text-white text-base font-medium leading-normal">
-                        Submitted by: {item.user}
+                      Submitted by: {item.user.name || "Anonymous"}
                       </p>
                     </div>
                   </div>
@@ -95,7 +95,7 @@ const Confessions = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer/>
     </main>
   );
 };
