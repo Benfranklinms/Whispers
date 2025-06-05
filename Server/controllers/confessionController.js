@@ -4,7 +4,7 @@ export const createConfession = async (req, res) => {
     try {
         const { text } = req.body;
         if(!text){
-            res.status(400).json({message: "Confession text is required"});
+            return res.status(400).json({message: "Confession text is required"});
         }
         const newConfession = new Confession({
             text,

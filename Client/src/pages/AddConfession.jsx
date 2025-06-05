@@ -1,14 +1,39 @@
 import React from "react";
+import { useState } from "react";
+import axios from "axios";
 import Navbar from "../components/Navbar";
 
 const AddConfession = () => {
 
+  const [confession, setconfession] = useState("");
+  const maxChars = 300;
 
-  const maxChars = 500;
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    if (confession.length > maxChars) {
+      alert(`Confession exceeds ${maxChars} characters limit.`);
+      return;
+    }
+    if(!confession.trim()){
+      alert("Confession cannot be empty.");
+      return;
+    }
+    const token = localStorage.getItem("token");
+
+    try {
+      const res = await axios.post("http://localhost:3000/confession/add", {
+        text: confession}, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+        });
+      if (res.status === 201) {
+        alert("Confession added successfully!");
+        setconfession("");
+      }
+      } catch (err) {
+        console.error("Error adding confession:", err);
+      }
   }
 
   return (
@@ -22,7 +47,7 @@ const AddConfession = () => {
             </p>
           </div>
 
-          <form>
+          <form onSubmit={handleSubmit}>
 
           <div className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
             <label className="flex flex-col min-w-40 flex-1">
@@ -32,16 +57,19 @@ const AddConfession = () => {
               <textarea
                 placeholder="What's on your mind?"
                 className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#171212] focus:outline-0 focus:ring-0 border border-[#e4dddd] bg-white focus:border-[#e4dddd] min-h-36 placeholder:text-[#82686a] p-[15px] text-base font-normal leading-normal"
+                value={confession}
+                onChange={(e) => setconfession(e.target.value)}
+                maxLength={maxChars}
               ></textarea>
             </label>
           </div>
 
           <p className="text-[#82686a] text-sm font-normal leading-normal pb-3 pt-1 px-4">
-            Character limit: 500
+            Character limit : {maxChars - confession.length} remaining
           </p>
 
           <div className="flex px-4 py-3 justify-center">
-            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e8b4b7] text-[#171212] text-sm font-bold leading-normal tracking-[0.015em]" onClick={handleSubmit}>
+            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e8b4b7] text-[#171212] text-sm font-bold leading-normal tracking-[0.015em]">
               <span className="truncate">Submit</span>
             </button>
           </div>
