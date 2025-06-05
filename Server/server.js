@@ -1,11 +1,19 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import connectToDB from './Config/db.js';
 import authRoute from './routes/authRoute.js'
 import confessionRoute from './routes/confessionRoute.js';
 
-
 const app = express();
+
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}))
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
