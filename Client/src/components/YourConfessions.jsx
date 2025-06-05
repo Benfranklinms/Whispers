@@ -1,15 +1,47 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 const YourConfessions = () => {
+  
+  const [confession, setconfession] = useState([]);
+
+  useEffect(() => {
+    const fetchConfessions = async () => {
+      const token = localStorage.getItem('token');
+      try{
+        const res = await axios.get("http://localhost:3000/confession/my", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setconfession(res.data);
+      } catch (err) {
+        console.error("Error fetching confessions:", err);
+      }
+    }
+  
+    fetchConfessions();
+  }, []);
+  
+
   return (
     <section className='flex flex-col items-start bg-pink-200 p-10 sm:w-[70vw] max-sm:w-[95vw] mx-auto min-h-screen rounded-xl mb-5'>
         <div className='flex sm:px-2 gap-1'>
-            <span className='font-black text-2xl'>Your Confessions</span>
+            <span className='font-black text-2xl mb-2'>Your Confessions</span>
         </div>
-        <div className='bg-pink-400 sm:h-[20vh] sm:w-[60vw] rounded-xl max-sm:w-[80vw] max-sm:min-h-[20vh] flex  items-center text-sm font-bold text-white mx-auto my-6 max:sm-text'>
-          <span className='text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus magni, impedit quos, eveniet tempora libero consequatur nisi sunt consequuntur perspiciatis, quidem eos illum rerum quaerat asperiores saepe. Modi, ut tenetur?</span>
-        </div>
+        {confession.length === 0 ? (
+           <span className="text-gray-600 mt-6">You haven't made any confessions yet.</span>
+        ): (
+          confession.map((item, index) => {
+              return <div className='bg-pink-400 sm:h-[20vh] sm:w-[60vw] rounded-xl max-sm:w-[80vw] max-sm:min-h-[20vh] flex  items-center text-sm font-bold text-white mx-auto my-4 max:sm-text text-center'
+              key = {index}>
+              <span className='text-center'>{item.text}</span>
+                </div>
+          })
+        )
+        }
     </section>
   )
 }
