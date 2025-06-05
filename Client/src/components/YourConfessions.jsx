@@ -35,7 +35,7 @@ const YourConfessions = () => {
            <span className="text-gray-600 mt-6">You haven't made any confessions yet.</span>
         ): (
           confession.map((item, index) => {
-              return <div className='bg-pink-400 sm:h-[20vh] sm:w-[60vw] rounded-xl max-sm:w-[80vw] max-sm:min-h-[20vh] flex  items-center text-sm font-bold text-white mx-auto my-4 max:sm-text text-center'
+              return <div className='bg-pink-400 sm:h-[20vh] sm:w-[60vw] rounded-xl max-sm:w-[80vw] max-sm:min-h-[20vh] flex  items-center text-sm font-bold text-white mx-auto my-4 max:sm-text text-center p-4'
               key = {index}>
               <span className='text-center'>{item.text}</span>
                 </div>
