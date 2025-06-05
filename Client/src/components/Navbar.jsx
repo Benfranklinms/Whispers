@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { LuCircleUserRound } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
 import { Bell } from 'lucide-react';
+import AccountSection from './AccountSection';
 
 const Navbar = () => {
 
@@ -51,16 +52,17 @@ const Navbar = () => {
             {
                 menuOpen && (
                     <div className='bg-pink-400 absolute top-16 right-2 sm:hidden z-50 p-4 rounded flex flex-col gap-4'>
-                        <Link to = '/' className='hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Home</Link>
-                        <Link to = '/confessions' className='hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Confessions</Link>
-                        <Link to = '/add-confession' className='hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Add Confession</Link>
-                        <Link to = 'https://github.com/Benfranklinms/Whispers' className='hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Source code</Link>
-                        <button className='text-left hover:bg-red-900 block w-full hover:rounded px-2 py-1'>Logout</button>
+                        <Link to = '/' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Home</Link>
+                        <Link to = '/confessions' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Confessions</Link>
+                        <Link to = '/add-confession' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Add Confession</Link>
+                        <Link to = 'https://github.com/Benfranklinms/Whispers' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Source code</Link>
+                        <button className='text-left hover:bg-red-900 w-full hover:rounded px-2 py-1'>Logout</button>
                     </div>
                 )
             }
             </div>
         </nav>
+        <AccountSection className="sm:hidden" /> 
     </div>
   )
 }
