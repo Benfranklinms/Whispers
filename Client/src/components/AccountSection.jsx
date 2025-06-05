@@ -1,7 +1,32 @@
 import React from 'react'
 import { useRef } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const AccountSection = React.forwardRef((props, ref) => {
+ 
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/auth/user", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        setname(res.data.name);
+        setemail(res.data.email);
+      } catch (err) {
+        console.error("Error fetching user data:", err);
+      }
+    }
+
+    fetchUser();
+  }, []);
+  
+
   return (
     <div>
        <div ref={ref}
@@ -9,10 +34,10 @@ const AccountSection = React.forwardRef((props, ref) => {
       <div className="flex flex-col">
         <div className="p-4 border-b border-slate-200">
           <h2 className="text-[#0d141c] text-lg font-bold leading-tight tracking-[-0.015em]">
-            Ethan Carter
+            {name}
           </h2>
           <p className="text-[#49739c] text-sm font-normal leading-normal">
-            ethan.carter@email.com
+            {email} 
           </p>
         </div>
 
