@@ -30,7 +30,7 @@ export const signUp = async (req, res) => {
 };
 
 
-export const signIn = async (res, req) => {
+export const signIn = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({email});
     if(!user){
@@ -39,9 +39,9 @@ export const signIn = async (res, req) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if(!isMatch){
-        res.status(404).json({message: "Invalid credentials"});
+        res.status(401).json({message: "Invalid credentials"});
     }
 
-    const token = jwt.sign({id: newUser._id}, process.env.JWT_SECRET, {expiresIn: '1h'});
+    const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '1h'});
     res.status(200).json({user, token});
 }

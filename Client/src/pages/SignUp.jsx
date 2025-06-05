@@ -11,20 +11,24 @@ const SignUp = () => {
   const [password, setpassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     try{
-      const res = axios.post("http://localhost:3000/auth/signup", {
+      const res = await axios.post("http://localhost:3000/auth/signup", {
         name,
         email,
         password
       });
       console.log(res.data);
-      localStorage.setItem('token', res.data.token);
+      if(res.data.token) {
+        localStorage.setItem('token', res.data.token);
+      }
+      else {
+        console.error("No token received in response", res.data);
+      }
       navigate('/')
     } catch(err) {
-      console.error(err.response?.data?.message || "Signup error");
+      console.error("Error during sign up:", err);
     }
   }
 
