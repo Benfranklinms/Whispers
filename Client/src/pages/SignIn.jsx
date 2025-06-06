@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import axios from 'axios';
 
 const SignIn = () => {
@@ -20,14 +21,16 @@ const SignIn = () => {
 
       if(res.data && res.data.token) {
         localStorage.setItem('token', res.data.token);
+        toast.success("Login successful!");
+        console.log("Token received:", res.data.token);
         navigate('/');
       }
       else {
-        console.error("No token received in response", res.data);
+        toast.info("No token received in response");
       }
     } catch (err) {
       console.error("Error during sign in:", err);
-      alert("Invalid credentials. Please try again.");
+      toast.error("Invalid credentials. Please try again.");
     }
   }
 

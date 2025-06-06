@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddConfession = () => {
 
@@ -14,17 +15,17 @@ const AddConfession = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (confession.length > maxChars) {
-      alert(`Confession exceeds ${maxChars} characters limit.`);
+      toast.error(`Confession exceeds ${maxChars} characters limit.`);
       return;
     }
     if(!confession.trim()){
-      alert("Confession cannot be empty.");
+      toast.error("Confession cannot be empty.");
       return;
     }
     const token = localStorage.getItem("token");
 
     if (!token) {
-      alert("You must be logged in to add a confession.");
+      toast.info("You must be logged in to add a confession.");
       navigate("/sign-in");
       return;
     }
@@ -37,11 +38,11 @@ const AddConfession = () => {
           }
         });
       if (res.status === 201) {
-        alert("Confession added successfully!");
+        toast.success("Confession added successfully!");
         setconfession("");
       }
       } catch (err) {
-        console.error("Error adding confession:", err);
+        toast.error("Error adding confession:", err);
       }
   }
 

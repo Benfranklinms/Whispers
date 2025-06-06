@@ -2,6 +2,7 @@ import React from 'react'
 import { useRef } from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify'
 import axios from 'axios'
 
 const AccountSection = React.forwardRef((props, ref) => {
@@ -31,7 +32,7 @@ const AccountSection = React.forwardRef((props, ref) => {
         setname(res.data.name);
         setemail(res.data.email);
       } catch (err) {
-        console.error("Error fetching user data:", err);
+        toast.error("Error fetching user data:", err);
       }
     }
 
@@ -67,7 +68,10 @@ const AccountSection = React.forwardRef((props, ref) => {
           <button className="w-full h-10 px-4 rounded-xl bg-[#e7edf4] text-sm font-bold text-[#0d141c] hover:bg-[#dbe3ec] transition"
           onClick={() => {
             localStorage.removeItem('token');
-            window.location.href = '/';
+            toast.success("Logged out successfully!");
+            setTimeout(() => {
+              navigate('/');
+            }, 100);
           }}>
             Logout
           </button>

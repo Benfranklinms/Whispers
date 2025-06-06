@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const SignUp = () => {
@@ -22,13 +23,15 @@ const SignUp = () => {
       console.log(res.data);
       if(res.data.token) {
         localStorage.setItem('token', res.data.token);
+        toast.success("Account created successfully!");
+        console.log("Token received:", res.data.token);
       }
       else {
-        console.error("No token received in response", res.data);
+        toast.error("No token received in response", res.data);
       }
       navigate('/')
     } catch(err) {
-      console.error("Error during sign up:", err);
+      toast.error("Error during sign up:", err);
     }
   }
 

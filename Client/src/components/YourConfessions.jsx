@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const YourConfessions = () => {
@@ -18,7 +19,7 @@ const YourConfessions = () => {
         });
         setconfession(res.data);
       } catch (err) {
-        console.error("Error fetching confessions:", err);
+        toast.error("Error fetching confessions:", err);
       }
     }
   

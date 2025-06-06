@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { toast } from "react-toastify";
 
 const Confessions = () => {
   const [confession, setConfession] = useState([]);
@@ -14,7 +15,7 @@ const Confessions = () => {
         setConfession(res.data);
         setLoading(false);
       } catch (err) {
-        console.error("Error fetching confessions:", err);
+        toast.error("Error fetching confessions:", err);
         setLoading(false);
       }
     };
