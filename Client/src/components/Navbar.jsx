@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <div>
-        <nav className='flex justify-between bg-pink-700 text-white p-6'>
+        <nav className='flex justify-between bg-white text-black p-6 border-b-2 font-medium border-gray-200'>
             <div className='flex items-center gap-2'>
                 <FaCube className='text-2xl'/>
                 <span className='font-bold text-2xl'>Whispers</span>
@@ -51,19 +51,19 @@ const Navbar = () => {
                 {(
                     location.pathname === '/confessions'  
                 )}
-                <Link to = '/' className='max-sm:hidden'>Home</Link>
+                <Link to = '/' className='max-sm:hidden font-medium'>Home</Link>
                 {(isHome || isConfessions) && (
-                    <Link to = '/add-confession' className='max-sm:hidden'>Add Confession</Link>
+                    <Link to = '/add-confession' className='max-sm:hidden font-medium'>Add Confession</Link>
                 )}
                 {(isHome || isAddConfession) && (
-                    <Link to = '/confessions' className='max-sm:hidden'>Confessions</Link>
+                    <Link to = '/confessions' className='max-sm:hidden font-medium'>Confessions</Link>
                 )}
                 {(isConfessions || isAddConfession) && (
                     <Bell className='max-sm:hidden'/>
                 )}
             </ul>
             <div className='flex items-center gap-4'>
-                <LuCircleUserRound className='text-2xl mx-5' onClick={() => setaccountOpen(!accountOpen)}/>
+                <LuCircleUserRound className='text-2xl mx-5 cursor-pointer' onClick={() => setaccountOpen(!accountOpen)}/>
                 {menuOpen?(
                 <IoMdClose className='sm:hidden text-2xl' onClick={toggleMenu}/>):
                 (<GiHamburgerMenu className='sm:hidden text-2xl' onClick={toggleMenu}/>
@@ -71,11 +71,11 @@ const Navbar = () => {
             </div>
             {
                 menuOpen && (
-                    <div className='bg-pink-400 absolute top-16 right-2 sm:hidden z-50 p-4 rounded flex flex-col gap-4'>
-                        <Link to = '/' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Home</Link>
-                        <Link to = '/confessions' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Confessions</Link>
-                        <Link to = '/add-confession' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Add Confession</Link>
-                        <Link to = 'https://github.com/Benfranklinms/Whispers' className='hover:bg-red-900 w-full hover:rounded px-2 py-1'>Source code</Link>
+                    <div className='bg-white absolute top-16 right-2 sm:hidden z-50 p-4 rounded flex flex-col gap-4'>
+                        <Link to = '/' className='hover:bg-gray-100 w-full hover:rounded px-2 py-1'>Home</Link>
+                        <Link to = '/confessions' className='hover:bg-gray-100 w-full hover:rounded px-2 py-1'>Confessions</Link>
+                        <Link to = '/add-confession' className='hover:bg-gray-100 w-full hover:rounded px-2 py-1'>Add Confession</Link>
+                        <Link to = 'https://github.com/Benfranklinms/Whispers' className='hover:bg-gray-100 w-full hover:rounded px-2 py-1'>Source code</Link>
                     </div>
                 )
             }
