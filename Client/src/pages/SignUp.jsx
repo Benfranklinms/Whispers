@@ -48,7 +48,7 @@ const SignUp = () => {
           <input
             className="bg-gray-100 p-2 rounded-xl caret-indigo-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-700"
             type="text"
-            placeholder="Enter your name"
+            placeholder="Enter your username"
             value={name}
             onChange={(e) => setname(e.target.value)}
           />
