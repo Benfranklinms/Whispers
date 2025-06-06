@@ -69,6 +69,9 @@ const AccountSection = React.forwardRef((props, ref) => {
           onClick={() => {
             localStorage.removeItem('token');
             toast.success("Logged out successfully!");
+            setisLoggedIn(false);
+            setname("");
+            setemail("");
             setTimeout(() => {
               navigate('/');
             }, 100);
