@@ -1,12 +1,117 @@
-# React + Vite
+# 🕵️‍♂️ Whispers - Anonymous Confession Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Whispers is a full-stack web app that allows users to **share secrets anonymously**, built using **React**, **Express**, and **MongoDB**. Clean UI, secure auth, toast notifications, and a sleek experience — all in one.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔐 User Sign Up & Login (JWT-based)
+- 🙈 Post anonymous confessions
+- 📜 View all posted confessions
+- ✨ Smooth UI with responsive design
+- 📢 React Toastify for notifications
+- 🌘 TailwindCSS for modern styling
+- ⚠️ Protected Routes for authenticated actions
+- 🔍 Custom 404 Page
+- 🧠 Clean frontend/backend separation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+**Frontend:** React, Vite, React Router, TailwindCSS, React Toastify  
+**Backend:** Express.js, Node.js, MongoDB, Mongoose  
+**Deployment Ready:** Easily deployable to Render, Vercel, Railway, etc.
+
+---
+
+## 📸 Screenshots
+
+| Sign In | Confessions |
+|--------|-------------|
+| ![SignIn](./screenshots/signin.png) | ![Confessions](./screenshots/confessions.png) |
+
+---
+
+## 🧑‍💻 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/your-username/whispers.git
+cd whispers
+```
+
+### 2. Install dependencies
+
+```bash
+cd client
+npm install
+cd ../server
+npm install
+```
+
+### 3. Run the app
+
+```bash
+# In one terminal
+cd server
+npm run dev
+
+# In another terminal
+cd client
+npm run dev
+```
+
+---
+
+## 🗂 Folder Structure
+
+```
+whispers/
+├── client/       # React frontend
+│   ├── components/
+│   ├── pages/
+│   └── App.jsx
+├── server/       # Express backend
+│   ├── routes/
+│   ├── controllers/
+│   └── server.js
+```
+
+---
+
+## 🔒 Environment Variables
+
+In both `client` and `server`, create a `.env` file with:
+
+```env
+# For server
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+
+# For client (optional)
+VITE_API_BASE_URL=http://localhost:3000/api
+```
+
+---
+
+## 📦 Deployment (optional)
+
+Want help deploying? Let me know, and I’ll guide you through **Render** (backend) + **Vercel/Netlify** (frontend).
+
+---
+
+## 📬 Feedback
+
+If you enjoyed this project or have feedback, feel free to drop a star ⭐ or open an issue!
+
+---
+
+## 🙋‍♂️ Built by
+
+**Ben Franklin**  
+> 3rd year engineering student. Passionate about clean UIs, modern JS stacks, and learning in public.
+
+---
