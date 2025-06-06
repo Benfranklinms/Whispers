@@ -15,11 +15,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
         <div className="relative z-10 text-center px-6 py-16">
           <h1 className="text-white text-3xl md:text-5xl font-extrabold">
-            Share Your Secrets, <br /> <span className='text-gray-300' style={{
-            WebkitTextStroke: '0.7px gray',
-            color: 'transparent',
-            WebkitTextFillColor: '#9ca3af',
-  }}>
+            Share Your Secrets, <br /> <span className='text-indigo-300' >
                <Typewriter
                     words={['Anonymously']}
                     loop={0}
