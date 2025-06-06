@@ -2,11 +2,14 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const AddConfession = () => {
 
   const [confession, setconfession] = useState("");
   const maxChars = 300;
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +22,12 @@ const AddConfession = () => {
       return;
     }
     const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("You must be logged in to add a confession.");
+      navigate("/sign-in");
+      return;
+    }
 
     try {
       const res = await axios.post("http://localhost:3000/confession/add", {
