@@ -43,34 +43,34 @@ const SignUp = () => {
 
         <form className="flex flex-col w-full gap-4" onSubmit={handleSubmit}>
           <input
-            className="bg-gray-100 p-2 rounded-xl caret-pink-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+            className="bg-gray-100 p-2 rounded-xl caret-indigo-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-700"
             type="text"
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setname(e.target.value)}
           />
           <input
-            className="bg-gray-100 p-2 rounded-xl caret-pink-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+            className="bg-gray-100 p-2 rounded-xl caret-i-indigo-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-700"
             type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setemail(e.target.value)}
           />
           <input
-            className="bg-gray-100 p-2 rounded-xl caret-pink-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+            className="bg-gray-100 p-2 rounded-xl caret-i-indigo-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-700"
             type="password"
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />
-          <button className="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-xl font-medium transition">
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white p-3 rounded-xl font-medium transition">
             Create Account
           </button>
         </form>
 
         <div className="text-sm text-gray-600">
           Already have an account?{' '}
-          <Link to = '/sign-in' className="text-pink-600 font-medium hover:underline">
+          <Link to = '/sign-in' className="text-indigo-600 font-medium hover:underline">
             Log in
           </Link>
         </div>
