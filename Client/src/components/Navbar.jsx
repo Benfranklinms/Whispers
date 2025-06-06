@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaCube } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LuCircleUserRound } from "react-icons/lu";
@@ -38,11 +38,14 @@ const Navbar = () => {
        }
      }, []);
      
+     const navigate = useNavigate();
 
   return (
     <div>
         <nav className='flex justify-between bg-white text-black p-6 border-b-2 font-medium border-gray-200'>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 cursor-pointer'
+            onClick={() => navigate('/')}
+            >
                 <FaCube className='text-2xl'/>
                 <span className='font-bold text-2xl'>Whispers</span>
             </div>
