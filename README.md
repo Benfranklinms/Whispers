@@ -1,6 +1,6 @@
 # 🕵️‍♂️ Whispers - Anonymous Confession Platform
 
-Whispers is a full-stack web app that allows users to **share secrets anonymously**, built using **React**, **Express**, and **MongoDB**. Clean UI, secure auth, toast notifications, and a sleek experience — all in one.
+Whispers is a full-stack MERN app that allows users to **share secrets anonymously**, built using **React**, **Express**, and **MongoDB**. Clean UI, secure auth, toast notifications, and a sleek experience — all in one.
 
 ---
 
@@ -26,13 +26,6 @@ Whispers is a full-stack web app that allows users to **share secrets anonymousl
 
 ---
 
-## 📸 Screenshots
-
-| Sign In | Confessions |
-|--------|-------------|
-| ![SignIn](./screenshots/signin.png) | ![Confessions](./screenshots/confessions.png) |
-
----
 
 ## 🧑‍💻 Getting Started
 
@@ -90,28 +83,6 @@ In both `client` and `server`, create a `.env` file with:
 # For server
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-
-# For client (optional)
-VITE_API_BASE_URL=http://localhost:3000/api
 ```
-
----
-
-## 📦 Deployment (optional)
-
-Want help deploying? Let me know, and I’ll guide you through **Render** (backend) + **Vercel/Netlify** (frontend).
-
----
-
-## 📬 Feedback
-
-If you enjoyed this project or have feedback, feel free to drop a star ⭐ or open an issue!
-
----
-
-## 🙋‍♂️ Built by
-
-**Ben Franklin**  
-> 3rd year engineering student. Passionate about clean UIs, modern JS stacks, and learning in public.
 
 ---
